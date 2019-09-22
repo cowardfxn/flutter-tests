@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_book_app/textfield_and_form.dart';
 import 'state_management.dart';
 import 'text_and_font.dart';
 import 'buttons.dart';
 import 'image_and_icons.dart';
 import 'switch_and_checkbox.dart';
+import 'textfield_and_form.dart';
+import 'progress_indicator.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,6 +30,8 @@ class MyApp extends StatelessWidget {
         "button_page": (context) => ButtonRoute(),
         "image_page": (context) => ImageAndIconRoute(),
         "switch_chkbox_page": (context) => SwitchAndCheckboxRoute(),
+        "textfield_form_page": (context) => TextfieldAndFormRoute(),
+        "progress_indicator_page": (context) => ProgressIndicatorRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -144,18 +149,32 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             FlatButton(
               child: Text("图片&图标"),
-              textColor: Colors.teal,
+              textColor: Colors.lightGreen,
               onPressed: () {
                 Navigator.pushNamed(context, "image_page");
               },
             ),
             FlatButton(
               child: Text("单选/复选"),
-              textColor: Colors.red,
+              textColor: Colors.green,
               onPressed: () {
                 Navigator.pushNamed(context, "switch_chkbox_page");
               },
-            )
+            ),
+            FlatButton(
+              child: Text("输入框和表单"),
+              textColor: Colors.amber,
+              onPressed: () {
+                Navigator.pushNamed(context, "textfield_form_page");
+              },
+            ),
+            FlatButton(
+              child: Text("进度指示器"),
+              textColor: Colors.black,
+              onPressed: () {
+                Navigator.pushNamed(context, "progress_indicator_page");
+              },
+            ),
           ],
         ),
       ),
