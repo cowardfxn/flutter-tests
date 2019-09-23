@@ -8,6 +8,8 @@ import 'image_and_icons.dart';
 import 'switch_and_checkbox.dart';
 import 'textfield_and_form.dart';
 import 'progress_indicator.dart';
+import 'linear_layout.dart';
+import 'flex_layout.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
         "switch_chkbox_page": (context) => SwitchAndCheckboxRoute(),
         "textfield_form_page": (context) => TextfieldAndFormRoute(),
         "progress_indicator_page": (context) => ProgressIndicatorRoute(),
+        "linear_layout_page": (context) => LinearLayoutRoute(),
+        "flex_layout_page": (context) => FlexLayoutRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -173,6 +177,20 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.black,
               onPressed: () {
                 Navigator.pushNamed(context, "progress_indicator_page");
+              },
+            ),
+            FlatButton(
+              child: Text("线性布局"),
+              textColor: Colors.cyan,
+              onPressed: () {
+                Navigator.pushNamed(context, "linear_layout_page");
+              },
+            ),
+            FlatButton(
+              child: Text("弹性布局"),
+              textColor: Colors.deepOrange,
+              onPressed: () {
+                Navigator.pushNamed(context, "flex_layout_page");
               },
             ),
           ],
