@@ -68,19 +68,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -102,113 +89,31 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton(
-                child: Text("计数器"),
-                textColor: Colors.amber,
+            children: <List>[
+              ["计数器", Colors.amber, "init_sample"],
+              ["新页面", Colors.red, "new_page"],
+              ["带参数的新页面", Colors.green, "paramed_page"],
+              ["状态管理", Colors.blue, "state_management"],
+              ["文本&字体", Colors.teal, "text_page"],
+              ["按钮", Colors.teal, "button_page"],
+              ["图片&图标", Colors.lightGreen, "image_page"],
+              ["单选/复选", Colors.green, "switch_chkbox_page"],
+              ["输入框和表单", Colors.amber, "textfield_form_page"],
+              ["进度指示器", Colors.black, "progress_indicator_page"],
+              ["线性布局", Colors.cyan, "linear_layout_page"],
+              ["弹性布局", Colors.deepOrange, "flex_layout_page"],
+              ["流式布局", Colors.deepPurple, "flow_layout_page"],
+              ["层叠布局", Colors.greenAccent, "stacked_layout_page"],
+              ["对齐与相对位置", Colors.pink, "alignment_page"],
+            ].map((params) {
+              return FlatButton(
+                child: Text(params[0]),
+                textColor: params[1],
                 onPressed: () {
-                  Navigator.pushNamed(context, "init_sample");
+                  Navigator.pushNamed(context, params[2]);
                 },
-              ),
-              FlatButton(
-                child: Text("open new route"),
-                textColor: Colors.amber,
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page");
-                },
-              ),
-              FlatButton(
-                child: Text("Open new route with params"),
-                textColor: Colors.green,
-                onPressed: () {
-                  Navigator.pushNamed(context, "paramed_page");
-                },
-              ),
-              FlatButton(
-                child: Text("状态管理"),
-                textColor: Colors.blue,
-                onPressed: () {
-                  Navigator.pushNamed(context, "state_management");
-                },
-              ),
-              FlatButton(
-                child: Text("文本&字体"),
-                textColor: Colors.teal,
-                onPressed: () {
-                  Navigator.pushNamed(context, "text_page");
-                },
-              ),
-              FlatButton(
-                child: Text("按钮"),
-                textColor: Colors.teal,
-                onPressed: () {
-                  Navigator.pushNamed(context, "button_page");
-                },
-              ),
-              FlatButton(
-                child: Text("图片&图标"),
-                textColor: Colors.lightGreen,
-                onPressed: () {
-                  Navigator.pushNamed(context, "image_page");
-                },
-              ),
-              FlatButton(
-                child: Text("单选/复选"),
-                textColor: Colors.green,
-                onPressed: () {
-                  Navigator.pushNamed(context, "switch_chkbox_page");
-                },
-              ),
-              FlatButton(
-                child: Text("输入框和表单"),
-                textColor: Colors.amber,
-                onPressed: () {
-                  Navigator.pushNamed(context, "textfield_form_page");
-                },
-              ),
-              FlatButton(
-                child: Text("进度指示器"),
-                textColor: Colors.black,
-                onPressed: () {
-                  Navigator.pushNamed(context, "progress_indicator_page");
-                },
-              ),
-              FlatButton(
-                child: Text("线性布局"),
-                textColor: Colors.cyan,
-                onPressed: () {
-                  Navigator.pushNamed(context, "linear_layout_page");
-                },
-              ),
-              FlatButton(
-                child: Text("弹性布局"),
-                textColor: Colors.deepOrange,
-                onPressed: () {
-                  Navigator.pushNamed(context, "flex_layout_page");
-                },
-              ),
-              FlatButton(
-                child: Text("流式布局"),
-                textColor: Colors.deepPurple,
-                onPressed: () {
-                  Navigator.pushNamed(context, "flow_layout_page");
-                },
-              ),
-              FlatButton(
-                child: Text("层叠布局"),
-                textColor: Colors.greenAccent,
-                onPressed: () {
-                  Navigator.pushNamed(context, "stacked_layout_page");
-                },
-              ),
-              FlatButton(
-                child: Text("对齐与相对位置"),
-                textColor: Colors.pink,
-                onPressed: () {
-                  Navigator.pushNamed(context, "alignment_page");
-                },
-              ),
-            ],
+              );
+            }).toList(),
           ),
         ],
       )),
@@ -286,13 +191,6 @@ class RouterTextRoute extends StatelessWidget {
         child: Text("打开提示页"),
       ),
     );
-  }
-}
-
-class EchoRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var args = ModalRoute.of(context).settings.arguments;
   }
 }
 
