@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter_book_app/textfield_and_form.dart';
 import 'state_management.dart';
 import 'text_and_font.dart';
@@ -10,6 +9,10 @@ import 'textfield_and_form.dart';
 import 'progress_indicator.dart';
 import 'linear_layout.dart';
 import 'flex_layout.dart';
+import 'flow_layout.dart';
+import 'stacked_layout.dart';
+import 'alignment_tests.dart';
+import 'init_sample.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,6 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
 //        "/": (context) => MyHomePage(title: "Flutter Demo Home Page",),
+        "init_sample": (context) => InitSampleRoute(),
         "new_page": (context) => NewRoute(),
         "paramed_page": (context) => RouterTextRoute(),
         "state_management": (context) => StateRoute(),
@@ -36,6 +40,9 @@ class MyApp extends StatelessWidget {
         "progress_indicator_page": (context) => ProgressIndicatorRoute(),
         "linear_layout_page": (context) => LinearLayoutRoute(),
         "flex_layout_page": (context) => FlexLayoutRoute(),
+        "flow_layout_page": (context) => FlowLayoutTests(),
+        "stacked_layout_page": (context) => StackedLayoutRoute(),
+        "alignment_page": (context) => AlignmentRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -89,118 +96,122 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            FlatButton(
-              child: Text("open new route"),
-              textColor: Colors.amber,
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page");
-              },
-            ),
-            FlatButton(
-              child: Text("Open new route with params"),
-              textColor: Colors.green,
-              onPressed: () {
-                Navigator.pushNamed(context, "paramed_page");
-              },
-            ),
-            RandomWordsWidget(),
-            FlatButton(
-              child: Text("状态管理"),
-              textColor: Colors.blue,
-              onPressed: () {
-                Navigator.pushNamed(context, "state_management");
-              },
-            ),
-            FlatButton(
-              child: Text("文本&字体"),
-              textColor: Colors.teal,
-              onPressed: () {
-                Navigator.pushNamed(context, "text_page");
-              },
-            ),
-            FlatButton(
-              child: Text("按钮"),
-              textColor: Colors.teal,
-              onPressed: () {
-                Navigator.pushNamed(context, "button_page");
-              },
-            ),
-            FlatButton(
-              child: Text("图片&图标"),
-              textColor: Colors.lightGreen,
-              onPressed: () {
-                Navigator.pushNamed(context, "image_page");
-              },
-            ),
-            FlatButton(
-              child: Text("单选/复选"),
-              textColor: Colors.green,
-              onPressed: () {
-                Navigator.pushNamed(context, "switch_chkbox_page");
-              },
-            ),
-            FlatButton(
-              child: Text("输入框和表单"),
-              textColor: Colors.amber,
-              onPressed: () {
-                Navigator.pushNamed(context, "textfield_form_page");
-              },
-            ),
-            FlatButton(
-              child: Text("进度指示器"),
-              textColor: Colors.black,
-              onPressed: () {
-                Navigator.pushNamed(context, "progress_indicator_page");
-              },
-            ),
-            FlatButton(
-              child: Text("线性布局"),
-              textColor: Colors.cyan,
-              onPressed: () {
-                Navigator.pushNamed(context, "linear_layout_page");
-              },
-            ),
-            FlatButton(
-              child: Text("弹性布局"),
-              textColor: Colors.deepOrange,
-              onPressed: () {
-                Navigator.pushNamed(context, "flex_layout_page");
-              },
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child: ListView(
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text("计数器"),
+                textColor: Colors.amber,
+                onPressed: () {
+                  Navigator.pushNamed(context, "init_sample");
+                },
+              ),
+              FlatButton(
+                child: Text("open new route"),
+                textColor: Colors.amber,
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page");
+                },
+              ),
+              FlatButton(
+                child: Text("Open new route with params"),
+                textColor: Colors.green,
+                onPressed: () {
+                  Navigator.pushNamed(context, "paramed_page");
+                },
+              ),
+              FlatButton(
+                child: Text("状态管理"),
+                textColor: Colors.blue,
+                onPressed: () {
+                  Navigator.pushNamed(context, "state_management");
+                },
+              ),
+              FlatButton(
+                child: Text("文本&字体"),
+                textColor: Colors.teal,
+                onPressed: () {
+                  Navigator.pushNamed(context, "text_page");
+                },
+              ),
+              FlatButton(
+                child: Text("按钮"),
+                textColor: Colors.teal,
+                onPressed: () {
+                  Navigator.pushNamed(context, "button_page");
+                },
+              ),
+              FlatButton(
+                child: Text("图片&图标"),
+                textColor: Colors.lightGreen,
+                onPressed: () {
+                  Navigator.pushNamed(context, "image_page");
+                },
+              ),
+              FlatButton(
+                child: Text("单选/复选"),
+                textColor: Colors.green,
+                onPressed: () {
+                  Navigator.pushNamed(context, "switch_chkbox_page");
+                },
+              ),
+              FlatButton(
+                child: Text("输入框和表单"),
+                textColor: Colors.amber,
+                onPressed: () {
+                  Navigator.pushNamed(context, "textfield_form_page");
+                },
+              ),
+              FlatButton(
+                child: Text("进度指示器"),
+                textColor: Colors.black,
+                onPressed: () {
+                  Navigator.pushNamed(context, "progress_indicator_page");
+                },
+              ),
+              FlatButton(
+                child: Text("线性布局"),
+                textColor: Colors.cyan,
+                onPressed: () {
+                  Navigator.pushNamed(context, "linear_layout_page");
+                },
+              ),
+              FlatButton(
+                child: Text("弹性布局"),
+                textColor: Colors.deepOrange,
+                onPressed: () {
+                  Navigator.pushNamed(context, "flex_layout_page");
+                },
+              ),
+              FlatButton(
+                child: Text("流式布局"),
+                textColor: Colors.deepPurple,
+                onPressed: () {
+                  Navigator.pushNamed(context, "flow_layout_page");
+                },
+              ),
+              FlatButton(
+                child: Text("层叠布局"),
+                textColor: Colors.greenAccent,
+                onPressed: () {
+                  Navigator.pushNamed(context, "stacked_layout_page");
+                },
+              ),
+              FlatButton(
+                child: Text("对齐与相对位置"),
+                textColor: Colors.pink,
+                onPressed: () {
+                  Navigator.pushNamed(context, "alignment_page");
+                },
+              ),
+            ],
+          ),
+        ],
+      )),
     );
   }
 }
@@ -285,17 +296,6 @@ class EchoRoute extends StatelessWidget {
   }
 }
 
-class RandomWordsWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final wordPair = new WordPair.random();
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new Text(wordPair.toString()),
-    );
-  }
-}
-
 class StateRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -334,15 +334,14 @@ class TextRoute extends StatelessWidget {
   }
 }
 
-
 class ButtonRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
             title: Text(
-              "按钮",
-            )),
+          "按钮",
+        )),
         body: Center(
           child: BasicButtons(),
         ));
