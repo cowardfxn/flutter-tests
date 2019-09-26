@@ -14,6 +14,7 @@ import 'stacked_layout.dart';
 import 'alignment_tests.dart';
 import 'init_sample.dart';
 import 'padding_test.dart';
+import 'limited_size_box.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         "stacked_layout_page": (context) => StackedLayoutRoute(),
         "alignment_page": (context) => AlignmentRoute(),
         "padding_page": (context) => PaddingTestRoute(),
+        "limited_size_page": (context) => LimitedSizeBoxRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -108,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ["层叠布局", Colors.greenAccent, "stacked_layout_page"],
               ["对齐与相对位置", Colors.pink, "alignment_page"],
               ["填充", Colors.blue[400], "padding_page"],
+              ["尺寸限制类容器", Colors.deepOrangeAccent[200], "limited_size_page"],
             ].map((params) {
               return FlatButton(
                 child: Text(params[0]),
