@@ -15,6 +15,11 @@ import 'alignment_tests.dart';
 import 'init_sample.dart';
 import 'padding_test.dart';
 import 'limited_size_box.dart';
+import 'scaffold_tests.dart';
+import 'clip_tests.dart';
+import 'singlechildscrollview_test.dart';
+import 'list_view.dart';
+import 'grid_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,6 +52,11 @@ class MyApp extends StatelessWidget {
         "alignment_page": (context) => AlignmentRoute(),
         "padding_page": (context) => PaddingTestRoute(),
         "limited_size_page": (context) => LimitedSizeBoxRoute(),
+        "scaffold_page": (context) => ScaffoldRoute(),
+        "clip_page": (context) => ClipTestRoute(),
+        "singlechildscrollview_page": (context) => SingleChildScrollViewRoute(),
+        "listview_page": (context) => ListViewRoute(),
+        "gridview_page": (context) => GridViewRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -111,6 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ["对齐与相对位置", Colors.pink, "alignment_page"],
               ["填充", Colors.blue[400], "padding_page"],
               ["尺寸限制类容器", Colors.deepOrangeAccent[200], "limited_size_page"],
+              ["脚手架", Colors.deepPurple[200], "scaffold_page"],
+              ["裁剪", Colors.green[200], "clip_page"],
+              ["单子节点滚动组件", Colors.green[200], "singlechildscrollview_page"],
+              ["ListView", Colors.orangeAccent[100], "listview_page"],
+              ["GridView", Colors.lime[500], "gridview_page"],
             ].map((params) {
               return FlatButton(
                 child: Text(params[0]),
