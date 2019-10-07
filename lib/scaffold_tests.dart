@@ -6,7 +6,8 @@ class ScaffoldRoute extends StatefulWidget {
   _ScaffoldRouteState createState() => new _ScaffoldRouteState();
 }
 
-class _ScaffoldRouteState extends State<ScaffoldRoute> {
+class _ScaffoldRouteState extends State<ScaffoldRoute>
+    with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   TabController _tabController;
   List tabs = ["新闻", "历史", "图片 "];

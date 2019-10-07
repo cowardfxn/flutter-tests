@@ -20,6 +20,8 @@ import 'clip_tests.dart';
 import 'singlechildscrollview_test.dart';
 import 'list_view.dart';
 import 'grid_view.dart';
+import 'custom_scroll_view.dart';
+import "scroll_controller.dart";
 
 void main() => runApp(MyApp());
 
@@ -57,6 +59,8 @@ class MyApp extends StatelessWidget {
         "singlechildscrollview_page": (context) => SingleChildScrollViewRoute(),
         "listview_page": (context) => ListViewRoute(),
         "gridview_page": (context) => GridViewRoute(),
+        "customview_page": (context) => CustomScrollViewTestRoute(),
+        "scroll_controller_page": (context) => ScrollNotificationTestRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -126,6 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ["单子节点滚动组件", Colors.green[200], "singlechildscrollview_page"],
               ["ListView", Colors.orangeAccent[100], "listview_page"],
               ["GridView", Colors.lime[500], "gridview_page"],
+              ["CustomScrollView", Colors.limeAccent[200], "customview_page"],
+              ["滚动监听及控制", Colors.limeAccent[400], "scroll_controller_page"],
             ].map((params) {
               return FlatButton(
                 child: Text(params[0]),

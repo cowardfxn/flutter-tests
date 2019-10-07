@@ -4,14 +4,12 @@ import 'package:flutter/material.dart';
 class GridViewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-      appBar: AppBar(title: Text("GridView"),),
-      body: Column(
-          children: <Widget>[
-          InfiniteGridView(),
-      ],
-    ),);
+      appBar: AppBar(
+        title: Text("GridView"),
+      ),
+      body: InfiniteGridView(),
+    );
   }
 }
 
@@ -32,12 +30,11 @@ class _InfiniteGridViewState extends State<InfiniteGridView> {
         ),
         itemCount: _icons.length,
         itemBuilder: (context, index) {
-          if (index == _icons.length - 1 && _icons.length < 200) {
+          if ((index == _icons.length - 1) && (_icons.length < 200)) {
             _retrieveIcons();
           }
           return Icon(_icons[index]);
-        }
-    );
+        });
   }
 
   @override
