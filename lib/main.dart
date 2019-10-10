@@ -25,6 +25,7 @@ import "scroll_controller.dart";
 import "will_pop_scope.dart";
 import 'widget_data_sharing.dart';
 import 'provider.dart';
+import 'theme_test.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
         "will_pop_scope_page": (context) => WillPopScopeTestRoute(),
         "widget_data_sharing": (context) => InheritedWidgetTestRoute(),
         "provider_page": (context) => ProviderRoute(),
+        "theme_page": (context) => ThemeTestRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -141,6 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ["导航返回拦截", Colors.teal[100], "will_pop_scope_page"],
               ["数据共享", Colors.teal[200], "widget_data_sharing"],
               ["跨组件状态共享", Colors.teal[300], "provider_page"],
+              ["颜色和主题", Colors.teal[400], "theme_page"],
             ].map((params) {
               return FlatButton(
                 child: Text(params[0]),
