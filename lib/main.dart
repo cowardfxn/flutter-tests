@@ -26,6 +26,7 @@ import "will_pop_scope.dart";
 import 'widget_data_sharing.dart';
 import 'provider.dart';
 import 'theme_test.dart';
+import 'dialog_tests.dart';
 
 void main() => runApp(MyApp());
 
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
         "widget_data_sharing": (context) => InheritedWidgetTestRoute(),
         "provider_page": (context) => ProviderRoute(),
         "theme_page": (context) => ThemeTestRoute(),
+        "dialog_page": (context) => DialogBoxRoute(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -144,6 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ["数据共享", Colors.teal[200], "widget_data_sharing"],
               ["跨组件状态共享", Colors.teal[300], "provider_page"],
               ["颜色和主题", Colors.teal[400], "theme_page"],
+              ["对话框", Colors.teal[800], "dialog_page"],
             ].map((params) {
               return FlatButton(
                 child: Text(params[0]),
